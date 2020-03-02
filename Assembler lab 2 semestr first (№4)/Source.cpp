@@ -40,14 +40,20 @@ int main()
 
 	bublesortline:
 		
+		mov j, 0
+		mov ecx, N
+		inc ecx
+		mul cl
+		mov cl, 4
+		mul cl			
 		L3:
 			mov ebx, N
 			cmp j, ebx
 			jge L7
-				mov ebx, j
-				mov k, ebx
+				mov k,0
 				L4:
 					mov ebx, N
+					sub ebx, j
 					cmp k, ebx
 					jge L5
 						lea esi, [matrix+eax][0]
