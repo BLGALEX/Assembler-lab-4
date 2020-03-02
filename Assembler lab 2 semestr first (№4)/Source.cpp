@@ -1,28 +1,5 @@
 #include<iostream>
 
-void bublesortline1(int** arr, int N, int no)
-{
-	int i = 0;
-	int j;
-	int temp;
-	while (i < (N-1))
-	{
-		j = i;
-		while (j < (N-1))
-		{
-			if (arr[no][j] > arr[no][j + 1])
-			{
-				temp = arr[no][j];
-				arr[no][j] = arr[no][j + 1];
-				arr[no][j + 1] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-		
-}
-
 int main()
 {
 	const int N = 2;
