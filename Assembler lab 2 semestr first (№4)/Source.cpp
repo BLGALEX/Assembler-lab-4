@@ -34,7 +34,7 @@ int main()
 					sub ebx, j
 					cmp k, ebx
 					jge L5
-						mov ebx, k // проверить лишее ли
+						mov ebx, k 
 						mov edx, [esi+ebx*4]
 						cmp edx, [esi + ebx * 4+4]
 						jng L6
@@ -54,24 +54,31 @@ int main()
 		mov j, 0
 		lea esi, [matrix+eax*4]
 		mov eax, N
+		inc eax
 		mov bl, 4
 		mul bl
+		mov edx, eax
 		L9:
 			mov ebx, N
 			cmp j, ebx
 			jge L10
 				mov k, 0
+				mov edi, esi
 				L11:
 					mov ebx, N
 					sub ebx, j
 					cmp k, ebx
 					jge L12
-						mov edx, k
-						mul dl
-						mov edx, [esi+eax]
-						cmp edx, [esi+eax*2]
-						
-
+						mov eax, [edi]
+						cmp eax, [edi+edx]
+						jle L13
+							mov ecx, [edi+edx]
+							mov [edi], ecx
+							mov [edi+edx], eax
+						L13:
+					inc k	
+					lea edi, [edi + edx]
+					jmp L11
 				L12:
 				inc j
 				jmp L9
@@ -107,7 +114,10 @@ int main()
 		L90:
 	}
 	for (int i = 0; i < N + 1; i++)
+	{
 		for (int j = 0; j < N + 1; j++)
-			std::cout << matrix[i][j];
+			std::cout << matrix[i][j] << " ";
+		std::cout << std::endl;
+	}
 	return 0;
 }
