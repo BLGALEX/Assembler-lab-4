@@ -2,7 +2,7 @@
 
 int main()
 {
-	const int N = 2;
+	const int N = 4;
 	int matrix[N+1][N+1];
 	for (int i = 0; i < N+1; i++)
 		for (int j = 0; j < N+1; j++)
